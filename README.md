@@ -11,7 +11,7 @@ A memory game built with React for [The Odin Project](https://www.theodinproject
 - [ ] Update the best score when the current score beats it
 - [ ] Fetch data in a `useEffect`, and handle loading and error states
 - [ ] Style it
-- [ ] Deploy it (GitHub Pages workflow included, see below)
+- [ ] Deploy it (Netlify config included, see below)
 
 ## Starter structure
 
@@ -84,8 +84,10 @@ it('increments the counter on click', async () => {
 
 Prefer queries that reflect how users find elements: `getByRole`, `getByLabelText`, `getByText`.
 
-## Deploying to GitHub Pages
+## Deploying to Netlify
 
-`.github/workflows/deploy.yml` tests, builds and deploys the site on every push to `main`. The Vite `base` path is set automatically from the repo name.
+`netlify.toml` tells Netlify to run `pnpm build` and publish `dist/`.
 
-One-time setup per repo: **Settings → Pages → Source: GitHub Actions**. The site is then live at `https://<username>.github.io/<repo-name>/`. Check progress or errors in the repo's **Actions** tab.
+One-time setup: in Netlify, **Add new site → Import an existing project**, pick this repo, and keep the defaults. Every push to `main` then redeploys the site.
+
+GitHub Actions (`.github/workflows/ci.yml`) runs lint and tests on every push and pull request.
