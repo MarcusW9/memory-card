@@ -1,6 +1,34 @@
-# React Template
+# Memory Card
 
-A minimal React starter for [The Odin Project](https://www.theodinproject.com/) React course.
+A memory game built with React for [The Odin Project](https://www.theodinproject.com/lessons/node-path-react-new-memory-card). Click each card only once. The cards shuffle after every click.
+
+## Project requirements
+
+- [ ] Show a scoreboard with the **current score** and the **best score**
+- [ ] Show a grid of cards, each with an image and a name, fetched from an external API (`src/api/fetchCards.js`)
+- [ ] Clicking a card shuffles the cards into a random order (`src/utils/shuffle.js`)
+- [ ] Clicking a new card increases the score; clicking a card twice resets it
+- [ ] Update the best score when the current score beats it
+- [ ] Fetch data in a `useEffect`, and handle loading and error states
+- [ ] Style it
+- [ ] Deploy it (GitHub Pages workflow included, see below)
+
+## Starter structure
+
+```
+src/
+├── App.jsx                 # Game state + click handler (TODOs inside)
+├── App.css                 # Layout and card styles
+├── App.test.jsx            # Starter tests, add more as you build
+├── api/fetchCards.js       # TODO: fetch card data (PokéAPI example)
+├── components/
+│   ├── Scoreboard.jsx      # Current + best score
+│   ├── CardGrid.jsx        # Renders the list of cards
+│   └── Card.jsx            # A single clickable card
+└── utils/
+    ├── shuffle.js          # Fisher–Yates shuffle (returns a new array)
+    └── shuffle.test.js
+```
 
 ## Stack
 
@@ -36,24 +64,6 @@ pnpm dev
 | `pnpm lint`    | Lint with oxlint                     |
 | `pnpm format`  | Format all files with Prettier       |
 
-## Project structure
-
-```
-├── index.html          # HTML entry, mounts the app at #root
-├── public/             # Static assets served as-is
-├── src/
-│   ├── main.jsx        # React entry, renders <App /> into #root
-│   ├── App.jsx         # Root component (example counter)
-│   ├── App.test.jsx    # Example component tests
-│   ├── index.css       # Global styles and CSS reset
-│   └── test/
-│       └── setup.js    # Test setup: jest-dom matchers, cleanup
-├── vite.config.js      # Vite and Vitest config
-├── .oxlintrc.json      # Linter config
-├── .github/workflows/  # GitHub Pages deploy
-└── .prettierrc         # Formatter config
-```
-
 ## Testing
 
 Tests live next to the component they test, named `*.test.jsx`. Vitest globals (`describe`, `it`, `expect`) are enabled, but importing them explicitly also works.
@@ -79,10 +89,3 @@ Prefer queries that reflect how users find elements: `getByRole`, `getByLabelTex
 `.github/workflows/deploy.yml` tests, builds and deploys the site on every push to `main`. The Vite `base` path is set automatically from the repo name.
 
 One-time setup per repo: **Settings → Pages → Source: GitHub Actions**. The site is then live at `https://<username>.github.io/<repo-name>/`. Check progress or errors in the repo's **Actions** tab.
-
-## Using this template
-
-1. On GitHub, click **Use this template** to create a new repo.
-2. Rename `name` in `package.json` and `<title>` in `index.html`.
-3. Enable Pages (see above).
-4. Replace `App.jsx` and its test with your own components.
